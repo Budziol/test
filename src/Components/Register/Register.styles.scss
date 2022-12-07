@@ -1,0 +1,47 @@
+@import "../../Styles/Variables/Variables.scss";
+
+.loginSection {
+  @include sections;
+
+  .container {
+    @include sectionContainer;
+    padding: 1rem 0;
+
+    .welcomeText {
+      @include welcomeText;
+    }
+
+    .inputBox {
+      @include inputBox;
+      margin: 5px 15px;
+
+      .nick {
+        @include input;
+      }
+      .email {
+        @include input;
+      }
+      .pwd {
+        @include input;
+      }
+      .pwdCheck {
+        @include input;
+      }
+    }
+
+    .buttonContainer {
+      @include sectionButtonContainer;
+
+      .loginButton {
+        @include button;
+        background-color: $bgColor;
+        color: $fontColorPrimary;
+      }
+    }
+  }
+  .registerButton {
+    @include button;
+    background-color: $buttonSecondaryColor;
+    color: $secondaryFontColor;
+  }
+}

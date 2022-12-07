@@ -1,0 +1,122 @@
+@font-face {
+  font-family: "Poppins";
+  src: local("Poppins"), url(../fonts/Poppins-SemiBold.ttf) format("truetype");
+  font-weight: 100;
+}
+
+@font-face {
+  font-family: "Poppins";
+  src: local("Poppins"), url(../fonts/Poppins-Bold.ttf) format("truetype");
+  font-weight: 200;
+}
+
+@font-face {
+  font-family: "Rubik";
+  src: local("Rubik"), url(../fonts/Rubik-Regular.ttf) format("truetype");
+  font-weight: 100;
+}
+
+@font-face {
+  font-family: "Rubik";
+  src: local("Rubik"), url(../fonts/Rubik-Medium.ttf) format("truetype");
+  font-weight: 200;
+}
+
+$bgColor: #6a5ae0;
+$buttonSecondaryColor: #e6e6e6;
+
+$logoFontSize: 4rem;
+$fontColorPrimary: #fff;
+$secondaryFontColor: #6a5ae0;
+$unactivColor: #858494;
+$bodyMargin: 1.25rem;
+$borderRadius: 20px;
+
+@mixin sections {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  margin: 0 1.25rem;
+}
+
+@mixin sectionContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #fff;
+  border-radius: $borderRadius;
+  max-width: 335px;
+  padding: 2rem 0;
+  z-index: 2;
+}
+
+@mixin welcomeText {
+  font-family: "Poppins";
+  font-weight: 100;
+  font-size: 1.5rem;
+  color: $secondaryFontColor;
+  text-align: center;
+  padding: 0 1.25rem;
+  & > span {
+    font-size: 2.25rem;
+  }
+}
+
+@mixin sectionButtonContainer {
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+@mixin button {
+  border-radius: $borderRadius;
+  outline: none;
+  border: none;
+  font-family: "Rubik";
+  font-weight: 200;
+  font-size: 1rem;
+  width: 260px;
+  height: 50px;
+  z-index: 3;
+}
+
+@mixin inputBox {
+  width: 260px;
+  margin: 1.25rem;
+  border-bottom: 1px solid $bgColor;
+  display: flex;
+  align-items: center;
+  padding: 0.45rem 0;
+}
+
+@mixin input {
+  font-family: "Rubik";
+  color: #1e1c7c;
+  font-weight: 200;
+  width: 80%;
+  outline: none;
+  padding: 0.313rem 0;
+  border: none;
+  font-size: 1rem;
+  padding: 0 1rem;
+}
+
+@mixin homeContainer {
+  background-color: #fff;
+  border-top-left-radius: $borderRadius;
+  border-top-right-radius: $borderRadius;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  min-height: 80vh;
+  gap: 2rem;
+  width: 100%;
+}
+
+@mixin categoryName {
+  font-weight: 200;
+  font-size: 1rem;
+}

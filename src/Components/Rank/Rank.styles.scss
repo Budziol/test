@@ -1,0 +1,42 @@
+@import "../../Styles/Variables/Variables.scss";
+
+.rankSection {
+  @include homeContainer;
+  margin-top: 1.5rem;
+  gap: 1rem;
+  z-index: 2;
+  .sectionName {
+    color: $secondaryFontColor;
+    margin-top: 1rem;
+  }
+  .categories {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 90%;
+    overflow-y: scroll;
+    height: 74%;
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+    gap: 0.5rem;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    .rankItem {
+      display: flex;
+      justify-content: flex-start;
+      width: 100%;
+
+      .categoryName {
+        @include categoryName;
+        color: $secondaryFontColor;
+      }
+      .index {
+        width: 100px;
+        font-weight: bold;
+      }
+    }
+  }
+}

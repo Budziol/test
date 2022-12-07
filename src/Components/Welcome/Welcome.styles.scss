@@ -1,0 +1,32 @@
+@import "../../Styles/Variables/Variables.scss";
+
+.WelcomeSection {
+  .container {
+    @include sectionContainer;
+
+    .welcomeText {
+      @include welcomeText;
+    }
+    .welcomeParagraph {
+      font-size: 1rem;
+      color: $unactivColor;
+      padding: 0 1.25rem;
+      text-align: center;
+    }
+
+    .buttonContainer {
+      @include sectionButtonContainer;
+
+      .loginButton {
+        @include button;
+        background-color: $bgColor;
+        color: $fontColorPrimary;
+      }
+      .registerButton {
+        @include button;
+        background-color: $buttonSecondaryColor;
+        color: $secondaryFontColor;
+      }
+    }
+  }
+}

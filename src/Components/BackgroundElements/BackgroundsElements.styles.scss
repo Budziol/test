@@ -1,0 +1,26 @@
+@import "../../Styles/Variables/Variables.scss";
+
+.square {
+  position: absolute;
+  z-index: 1;
+}
+
+.one {
+  top: 30px;
+  left: 50px;
+}
+
+.two {
+  right: 50px;
+  top: 20%;
+}
+
+.three {
+  top: 40%;
+  left: 20%;
+}
+
+.four {
+  bottom: 10%;
+  right: 10%;
+}

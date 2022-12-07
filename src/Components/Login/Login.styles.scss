@@ -1,0 +1,39 @@
+@import "../../Styles/Variables/Variables.scss";
+
+.loginSection {
+  gap: 2rem;
+
+  .container {
+    @include sectionContainer;
+
+    .welcomeText {
+      @include welcomeText;
+    }
+
+    .inputBox {
+      @include inputBox;
+
+      .nick {
+        @include input;
+      }
+      .pwd {
+        @include input;
+      }
+    }
+
+    .buttonContainer {
+      @include sectionButtonContainer;
+
+      .loginButton {
+        @include button;
+        background-color: $bgColor;
+        color: $fontColorPrimary;
+      }
+    }
+  }
+  .registerButton {
+    @include button;
+    background-color: $buttonSecondaryColor;
+    color: $secondaryFontColor;
+  }
+}

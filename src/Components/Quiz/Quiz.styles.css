@@ -1,0 +1,102 @@
+@font-face {
+  font-family: "Poppins";
+  src: local("Poppins"), url(../fonts/Poppins-SemiBold.ttf) format("truetype");
+  font-weight: 100;
+}
+@font-face {
+  font-family: "Poppins";
+  src: local("Poppins"), url(../fonts/Poppins-Bold.ttf) format("truetype");
+  font-weight: 200;
+}
+@font-face {
+  font-family: "Rubik";
+  src: local("Rubik"), url(../fonts/Rubik-Regular.ttf) format("truetype");
+  font-weight: 100;
+}
+@font-face {
+  font-family: "Rubik";
+  src: local("Rubik"), url(../fonts/Rubik-Medium.ttf) format("truetype");
+  font-weight: 200;
+}
+.quizSection {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #6a5ae0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3rem;
+}
+.quizSection .container {
+  display: flex;
+  flex-direction: column;
+  gap: 5rem;
+}
+.quizSection .container .categoryWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+.quizSection .container .categoryWrapper .questionContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.quizSection .container .categoryWrapper .sectionName {
+  font-size: 1.5rem;
+  font-weight: 200;
+}
+.quizSection .container .categoryWrapper .pointsText {
+  font-size: 1rem;
+  font-weight: 200;
+  text-align: center;
+}
+.quizSection .container .categoryWrapper .linkBtn {
+  border-radius: 20px;
+  outline: none;
+  border: none;
+  font-family: "Rubik";
+  font-weight: 200;
+  font-size: 1rem;
+  width: 260px;
+  height: 50px;
+  z-index: 3;
+  width: 150px;
+}
+.quizSection .container .categories .startBtn {
+  border-radius: 20px;
+  outline: none;
+  border: none;
+  font-family: "Rubik";
+  font-weight: 200;
+  font-size: 1rem;
+  width: 260px;
+  height: 50px;
+  z-index: 3;
+  width: 200px;
+  background-color: #fff;
+}
+.quizSection .container .categories .quizContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+.quizSection .container .categories .quizContainer .answerBtn {
+  border-radius: 20px;
+  outline: none;
+  border: none;
+  font-family: "Rubik";
+  font-weight: 200;
+  font-size: 1rem;
+  width: 260px;
+  height: 50px;
+  z-index: 3;
+  width: 200px;
+  background-color: #fff;
+}/*# sourceMappingURL=Quiz.styles.css.map */

@@ -1,0 +1,18 @@
+@import "../../Styles/Variables/Variables.scss";
+
+.logo {
+  width: 90px;
+  height: 90px;
+  border-radius: 20px;
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 5px 5px rgba(255, 255, 255, 0.75);
+  .logoLetter {
+    font-family: "Poppins";
+    font-weight: 200;
+    font-size: $logoFontSize;
+    color: $secondaryFontColor;
+  }
+}

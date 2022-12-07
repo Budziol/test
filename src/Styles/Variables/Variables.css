@@ -1,0 +1,20 @@
+@font-face {
+  font-family: "Poppins";
+  src: local("Poppins"), url(../fonts/Poppins-SemiBold.ttf) format("truetype");
+  font-weight: 100;
+}
+@font-face {
+  font-family: "Poppins";
+  src: local("Poppins"), url(../fonts/Poppins-Bold.ttf) format("truetype");
+  font-weight: 200;
+}
+@font-face {
+  font-family: "Rubik";
+  src: local("Rubik"), url(../fonts/Rubik-Regular.ttf) format("truetype");
+  font-weight: 100;
+}
+@font-face {
+  font-family: "Rubik";
+  src: local("Rubik"), url(../fonts/Rubik-Medium.ttf) format("truetype");
+  font-weight: 200;
+}/*# sourceMappingURL=Variables.css.map */

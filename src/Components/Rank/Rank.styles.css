@@ -1,0 +1,67 @@
+@font-face {
+  font-family: "Poppins";
+  src: local("Poppins"), url(../fonts/Poppins-SemiBold.ttf) format("truetype");
+  font-weight: 100;
+}
+@font-face {
+  font-family: "Poppins";
+  src: local("Poppins"), url(../fonts/Poppins-Bold.ttf) format("truetype");
+  font-weight: 200;
+}
+@font-face {
+  font-family: "Rubik";
+  src: local("Rubik"), url(../fonts/Rubik-Regular.ttf) format("truetype");
+  font-weight: 100;
+}
+@font-face {
+  font-family: "Rubik";
+  src: local("Rubik"), url(../fonts/Rubik-Medium.ttf) format("truetype");
+  font-weight: 200;
+}
+.rankSection {
+  background-color: #fff;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  min-height: 80vh;
+  gap: 2rem;
+  width: 100%;
+  margin-top: 1.5rem;
+  gap: 1rem;
+  z-index: 2;
+}
+.rankSection .sectionName {
+  color: #6a5ae0;
+  margin-top: 1rem;
+}
+.rankSection .categories {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 90%;
+  overflow-y: scroll;
+  height: 74%;
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+  gap: 0.5rem;
+}
+.rankSection .categories::-webkit-scrollbar {
+  display: none;
+}
+.rankSection .categories .rankItem {
+  display: flex;
+  justify-content: flex-start;
+  width: 100%;
+}
+.rankSection .categories .rankItem .categoryName {
+  font-weight: 200;
+  font-size: 1rem;
+  color: #6a5ae0;
+}
+.rankSection .categories .rankItem .index {
+  width: 100px;
+  font-weight: bold;
+}/*# sourceMappingURL=Rank.styles.css.map */
