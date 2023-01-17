@@ -10,32 +10,45 @@
     margin-top: 1rem;
   }
   .categories {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
+    display: grid;
+    grid-template-columns: 1fr;
     width: 90%;
     overflow-y: scroll;
-    height: 74%;
+    height: 70%;
     -ms-overflow-style: none; /* IE and Edge */
     scrollbar-width: none; /* Firefox */
-    gap: 0.5rem;
+    margin-top: 1rem;
+
+    @media (min-width: 768px) {
+      width: 50%;
+    }
+
+    @media (min-width: 1024px) {
+      width: 30%;
+    }
 
     &::-webkit-scrollbar {
       display: none;
     }
 
     .rankItem {
-      display: flex;
-      justify-content: flex-start;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
       width: 100%;
+      margin-top: 0.5rem;
 
       .categoryName {
         @include categoryName;
         color: $secondaryFontColor;
       }
+
       .index {
-        width: 100px;
         font-weight: bold;
+      }
+
+      .nickName {
+      }
+      .points {
       }
     }
   }

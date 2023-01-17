@@ -1,19 +1,14 @@
 import React, { useEffect } from "react";
 import "./Home.styles.scss";
-import { FaGlobeAfrica } from "react-icons/fa";
-import Footer from "../Footer";
+import { FaUser } from "react-icons/fa";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
-import { Hprops } from "../../types";
-import { db } from "../../firebase-config";
-import {
-  collection,
-  getDocs,
-  query,
-  where,
-  doc,
-  getDoc,
-} from "firebase/firestore";
+import { HomeProps } from "../../types";
+import { Pagination } from "swiper";
+import "swiper/css/pagination";
+import { motion } from "framer-motion";
+import { DynamicFaIcon } from "../../DynamicIcons";
+import { Link } from "react-router-dom";
 
 const Home = ({
   setComponents,
@@ -21,94 +16,88 @@ const Home = ({
   user,
   setUserDetails,
   userDetails,
-}: Hprops) => {
+  rank,
+  allUsers,
+  allQuizes,
+}: HomeProps) => {
   useEffect(() => {
     setComponents(false);
     setActiveComponent("home");
   }, []);
 
-  useEffect(() => {
-    const usersColectionRef = collection(db, "users");
-
-    const getUserDetails = async () => {
-      const q = query(usersColectionRef, where("email", "==", user.email));
-      const getDetails = await getDocs(q);
-      const userRef = doc(db, "users", getDetails.docs[0].id);
-      const docSnap = await getDoc(userRef);
-      if (docSnap.exists()) {
-        setUserDetails({
-          nick: docSnap.data().nick,
-          email: docSnap.data().email,
-          points: docSnap.data().points,
-        });
-      } else {
-        console.log("No such document!");
-      }
-    };
-    getUserDetails();
-  }, [user]);
+  const section = {
+    initial: { height: 0 },
+    animate: { height: "85%", transition: { easeIn: "linear", duration: 0.4 } },
+    exit: { height: 0, transition: { easeIn: "linear", duration: 0.4 } },
+  };
 
   return (
-    <section className="homeSection">
-      <div className="container">
-        {userDetails === undefined || userDetails === null ? (
-          <h1>Loading</h1>
-        ) : (
-          <>
-            <h2
-              className="userGreeting"
-              onClick={() => console.log(userDetails)}
-            >
-              Witaj <span>{userDetails?.nick}</span> twój ranking wynosi: #
-              {userDetails?.points}
-            </h2>
-            <Swiper
-              className="swiper"
-              slidesPerView={1}
-              freeMode={false}
-              speed={500}
-            >
-              <h3 className="swiperTitle">Top quizy</h3>
-              <SwiperSlide className="categoryWrapper">
-                <div className="categoryInnerWrapper">
-                  <FaGlobeAfrica style={{ fill: "#fff", fontSize: "3.5rem" }} />
-                  <h3 className="categoryName">Geografia</h3>
-                </div>
+    <motion.section
+      className="homeSection"
+      key="homeSection"
+      variants={section}
+      initial="initial"
+      whileInView="animate"
+      exit="exit"
+      viewport={{ once: true }}
+    >
+      <h2 className="userGreeting">
+        Witaj <span>{userDetails?.nick}</span> twój ranking wynosi: #
+        {rank?.findIndex((item) => item.email === user.email) + 1}
+      </h2>
+      <Swiper
+        className="swiper"
+        slidesPerView={1}
+        freeMode={false}
+        pagination={{
+          dynamicBullets: true,
+        }}
+        modules={[Pagination]}
+        speed={500}
+      >
+        <h3 className="swiperTitle">Top quizy</h3>
+        {allQuizes.map((item, i) => {
+          return (
+            i < 5 && (
+              <SwiperSlide className="categoryWrapper" key={i}>
+                <Link to={`/quiz/${item.id}`} className="categoryInnerWrapper">
+                  <DynamicFaIcon name={item.icon} />
+                  <h3 className="categoryName">{item.title}</h3>
+                </Link>
               </SwiperSlide>
-              <SwiperSlide className="categoryWrapper">
-                <div className="categoryInnerWrapper">
-                  <FaGlobeAfrica style={{ fill: "#fff", fontSize: "3.5rem" }} />
-                  <h3 className="categoryName">Sport</h3>
-                </div>
-              </SwiperSlide>
-              <SwiperSlide className="categoryWrapper">
-                <div className="categoryInnerWrapper">
-                  <FaGlobeAfrica style={{ fill: "#fff", fontSize: "3.5rem" }} />
-                  <h3 className="categoryName">Historia</h3>
-                </div>
-              </SwiperSlide>
-            </Swiper>
-            <Swiper
-              className="swiper"
-              slidesPerView={1}
-              freeMode={false}
-              speed={500}
-            >
-              <h3 className="swiperTitle">Top rankingu</h3>
-              <SwiperSlide className="categoryWrapper">
-                <h3 className="categoryName">TopGraczPl</h3>
-              </SwiperSlide>
-              <SwiperSlide className="categoryWrapper">
-                <h3 className="categoryName">ADAWdwd22</h3>
-              </SwiperSlide>
-              <SwiperSlide className="categoryWrapper">
-                <h3 className="categoryName">dawdad2</h3>
-              </SwiperSlide>
-            </Swiper>
-          </>
-        )}
-      </div>
-    </section>
+            )
+          );
+        })}
+      </Swiper>
+      <Swiper
+        className="swiper"
+        slidesPerView={1}
+        freeMode={false}
+        pagination={{
+          dynamicBullets: true,
+        }}
+        modules={[Pagination]}
+        speed={500}
+      >
+        <h3 className="swiperTitle">Top rankingu</h3>
+        {rank
+          .slice()
+          .sort((a, b) => a.points - b.points)
+          .reverse()
+          .map((item, i) => {
+            return (
+              i < 5 && (
+                <SwiperSlide className="categoryWrapper" key={i}>
+                  <Link to={`/rank`} className="categoryInnerWrapper">
+                    <FaUser style={{ fill: "#fff", fontSize: "2.5rem" }} />
+                    <h3 className="categoryName">{item.nick}</h3>
+                  </Link>
+                </SwiperSlide>
+              )
+            );
+          })}
+      </Swiper>
+    </motion.section>
   );
 };
 

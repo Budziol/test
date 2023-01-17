@@ -4,7 +4,7 @@ import "./ProgressBar.styles.scss";
 const ProgressBar = ({ completed }: any) => {
   const containerStyles = {
     height: 10,
-    width: "100%",
+    width: "250px",
     backgroundColor: "#e0e0de",
     borderRadius: 50,
   };

@@ -2,11 +2,12 @@ import React, { useState, useEffect } from "react";
 import "./Login.styles.scss";
 import { Link, useNavigate } from "react-router-dom";
 import { FaLock, FaUser } from "react-icons/fa";
-import { LoginProps } from "../../types";
+import { WelcomeProps } from "../../types";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../../firebase-config";
+import { motion } from "framer-motion";
 
-const Login = ({ setComponents, setActiveComponent }: LoginProps) => {
+const Login = ({ setComponents, setActiveComponent }: WelcomeProps) => {
   useEffect(() => {
     setComponents(true);
     setActiveComponent("login");
@@ -22,33 +23,20 @@ const Login = ({ setComponents, setActiveComponent }: LoginProps) => {
     e.preventDefault();
     try {
       const user = await signInWithEmailAndPassword(auth, email, pwd);
-      // getUserDetails();
-      navigate("/quiz-appka/home");
+      navigate("/home");
     } catch (error) {
       console.log(error);
     }
   };
 
-  // const usersColectionRef = collection(db, "users");
-
-  // const getUserDetails = async () => {
-  //   const q = query(usersColectionRef, where("email", "==", email));
-  //   const getDetails = await getDocs(q);
-  //   const userRef = doc(db, "users", getDetails.docs[0].id);
-  //   const docSnap = await getDoc(userRef);
-  //   if (docSnap.exists()) {
-  //     setUserDetails({
-  //       nick: docSnap.data().nick,
-  //       email: docSnap.data().email,
-  //       points: docSnap.data().points,
-  //     });
-  //   } else {
-  //     console.log("No such document!");
-  //   }
-  // };
-
   return (
-    <section className="loginSection">
+    <motion.section
+      className="loginSection"
+      key="loginSection"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1, transition: { duration: 0.4 } }}
+      exit={{ opacity: 0, transition: { duration: 0.4 } }}
+    >
       <form className="container" onSubmit={login}>
         <h2 className="welcomeText">Zaloguj</h2>
         <div className="inputBox">
@@ -77,10 +65,10 @@ const Login = ({ setComponents, setActiveComponent }: LoginProps) => {
           </button>
         </div>
       </form>
-      <Link to={"/quiz-appka/register"}>
+      <Link to={"/register"}>
         <button className="registerButton">Rejestracja</button>
       </Link>
-    </section>
+    </motion.section>
   );
 };
 

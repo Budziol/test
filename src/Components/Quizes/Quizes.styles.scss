@@ -3,7 +3,6 @@
 .quizesSection {
   @include homeContainer;
   margin-top: 1.5rem;
-  gap: 1rem;
   z-index: 2;
   .sectionName {
     color: $secondaryFontColor;
@@ -13,7 +12,7 @@
   .categories {
     display: flex;
     flex-wrap: wrap;
-    gap: 1rem;
+    margin-top: 1rem;
     justify-content: center;
     overflow-y: scroll;
     height: 74%;
@@ -33,10 +32,17 @@
       background-color: $bgColor;
       border-radius: $borderRadius;
       width: 130px;
+      height: 130px;
       padding: 1rem;
+      margin: 1rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
 
       .categoryName {
         @include categoryName;
+        min-height: 50px;
       }
     }
   }

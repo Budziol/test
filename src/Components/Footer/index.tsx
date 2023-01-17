@@ -9,6 +9,7 @@ import {
 import { Link, useNavigate } from "react-router-dom";
 import "./Footer.styles.scss";
 import { auth } from "../../firebase-config";
+import { motion } from "framer-motion";
 
 const Footer = ({ activeComponent, setUser }: any) => {
   const navigate = useNavigate();
@@ -16,13 +17,25 @@ const Footer = ({ activeComponent, setUser }: any) => {
   const logout = async () => {
     await auth.signOut();
     setUser(undefined);
-    navigate("/quiz-appka/");
+    navigate("/");
   };
 
   return (
-    <footer className="footer">
-      <div className="footerIcon">
-        <Link to={"/quiz-appka/home"}>
+    <motion.footer
+      className="footer"
+      key="footer"
+      initial={{ height: 0 }}
+      animate={{
+        height: "70px",
+        transition: { easeIn: "linear", duration: 0.4 },
+      }}
+      exit={{ height: 0, transition: { easeIn: "linear", duration: 0.4 } }}
+    >
+      <motion.div
+        className="footerIcon"
+        whileHover={{ scale: 1.1, transition: { duration: 0.2 } }}
+      >
+        <Link to={"/home"}>
           <FaHome
             style={{
               color:
@@ -33,9 +46,12 @@ const Footer = ({ activeComponent, setUser }: any) => {
             }}
           />
         </Link>
-      </div>
-      <div className="footerIcon">
-        <Link to={"/quiz-appka/quizes"}>
+      </motion.div>
+      <motion.div
+        className="footerIcon"
+        whileHover={{ scale: 1.1, transition: { duration: 0.2 } }}
+      >
+        <Link to={"/quizes"}>
           <FaQuestion
             style={{
               color:
@@ -46,9 +62,12 @@ const Footer = ({ activeComponent, setUser }: any) => {
             }}
           />
         </Link>
-      </div>
-      <div className="footerIcon">
-        <Link to={"/quiz-appka/rank"}>
+      </motion.div>
+      <motion.div
+        className="footerIcon"
+        whileHover={{ scale: 1.1, transition: { duration: 0.2 } }}
+      >
+        <Link to={"/rank"}>
           <FaMedal
             style={{
               color:
@@ -59,9 +78,12 @@ const Footer = ({ activeComponent, setUser }: any) => {
             }}
           />
         </Link>
-      </div>
-      <div className="footerIcon">
-        <Link to={"/quiz-appka/media"}>
+      </motion.div>
+      <motion.div
+        className="footerIcon"
+        whileHover={{ scale: 1.1, transition: { duration: 0.2 } }}
+      >
+        <Link to={"/media"}>
           <FaLink
             style={{
               color:
@@ -72,8 +94,11 @@ const Footer = ({ activeComponent, setUser }: any) => {
             }}
           />
         </Link>
-      </div>
-      <div className="footerIcon">
+      </motion.div>
+      <motion.div
+        className="footerIcon"
+        whileHover={{ scale: 1.1, transition: { duration: 0.2 } }}
+      >
         <FaSignOutAlt
           style={{
             color: "rgba(106, 90, 224, 0.7)",
@@ -81,8 +106,8 @@ const Footer = ({ activeComponent, setUser }: any) => {
           }}
           onClick={() => logout()}
         />
-      </div>
-    </footer>
+      </motion.div>
+    </motion.footer>
   );
 };
 

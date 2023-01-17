@@ -47,7 +47,7 @@ export const SquareOne = () => {
         rx="5"
         transform="rotate(33.4283 12.7722 -1)"
         fill="#A194FF"
-        fill-opacity="0.3"
+        fillOpacity="0.3"
       />
     </motion.svg>
   );
@@ -73,7 +73,7 @@ export const SquareTwo = () => {
         rx="5"
         transform="rotate(57 19.9668 -1)"
         fill="#5AC1E0"
-        fill-opacity="0.3"
+        fillOpacity="0.3"
       />
     </motion.svg>
   );
@@ -99,7 +99,7 @@ export const SquareThree = () => {
         rx="5"
         transform="rotate(57 19.9668 -1)"
         fill="#E05ACB"
-        fill-opacity="0.3"
+        fillOpacity="0.3"
       />
     </motion.svg>
   );
@@ -125,7 +125,7 @@ export const SquareFour = () => {
         rx="5"
         transform="rotate(-22.6121 -1 8.61218)"
         fill="#E0A65A"
-        fill-opacity="0.3"
+        fillOpacity="0.3"
       />
     </motion.svg>
   );

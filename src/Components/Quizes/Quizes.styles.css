@@ -26,11 +26,8 @@
   flex-direction: column;
   align-items: center;
   text-align: center;
-  min-height: 80vh;
-  gap: 2rem;
   width: 100%;
   margin-top: 1.5rem;
-  gap: 1rem;
   z-index: 2;
 }
 .quizesSection .sectionName {
@@ -40,7 +37,7 @@
 .quizesSection .categories {
   display: flex;
   flex-wrap: wrap;
-  gap: 1rem;
+  margin-top: 1rem;
   justify-content: center;
   overflow-y: scroll;
   height: 74%;
@@ -59,9 +56,16 @@
   background-color: #6a5ae0;
   border-radius: 20px;
   width: 130px;
+  height: 130px;
   padding: 1rem;
+  margin: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
 }
 .quizesSection .categories .categoryWrapper .categoryName {
   font-weight: 200;
   font-size: 1rem;
+  min-height: 50px;
 }/*# sourceMappingURL=Quizes.styles.css.map */

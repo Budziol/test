@@ -26,8 +26,6 @@
   flex-direction: column;
   align-items: center;
   text-align: center;
-  min-height: 80vh;
-  gap: 2rem;
   width: 100%;
   margin-top: 1.5rem;
   gap: 1rem;
@@ -43,10 +41,20 @@
   align-items: flex-start;
   width: 90%;
   overflow-y: scroll;
-  height: 74%;
+  height: 70%;
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
-  gap: 0.5rem;
+  margin-top: 1rem;
+}
+@media (min-width: 768px) {
+  .rankSection .categories {
+    width: 50%;
+  }
+}
+@media (min-width: 1024px) {
+  .rankSection .categories {
+    width: 30%;
+  }
 }
 .rankSection .categories::-webkit-scrollbar {
   display: none;
@@ -55,6 +63,7 @@
   display: flex;
   justify-content: flex-start;
   width: 100%;
+  margin-top: 0.5rem;
 }
 .rankSection .categories .rankItem .categoryName {
   font-weight: 200;
@@ -64,4 +73,11 @@
 .rankSection .categories .rankItem .index {
   width: 100px;
   font-weight: bold;
+}
+.rankSection .categories .rankItem .nickName {
+  margin-left: 35px;
+}
+.rankSection .categories .rankItem .points {
+  margin-left: auto;
+  min-width: 100px;
 }/*# sourceMappingURL=Rank.styles.css.map */

@@ -1,0 +1,13 @@
+.loading {
+  display: flex;
+}
+.loading .dot {
+  width: 30px;
+  height: 30px;
+  background-color: #fff;
+  border-radius: 50%;
+  display: block;
+}
+.loading .middle {
+  margin: 0 25px;
+}/*# sourceMappingURL=Loader.styles.css.map */

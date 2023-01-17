@@ -1,0 +1,14 @@
+.loading {
+  display: flex;
+  .dot {
+    width: 30px;
+    height: 30px;
+    background-color: #fff;
+    border-radius: 50%;
+    display: block;
+  }
+
+  .middle {
+    margin: 0 25px;
+  }
+}

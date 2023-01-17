@@ -45,6 +45,7 @@
 .quizSection .container .categoryWrapper .questionContainer {
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: 1rem;
 }
 .quizSection .container .categoryWrapper .sectionName {
@@ -66,6 +67,8 @@
   width: 260px;
   height: 50px;
   z-index: 3;
+  margin-top: 1rem;
+  cursor: pointer;
   width: 150px;
 }
 .quizSection .container .categories .startBtn {
@@ -78,6 +81,8 @@
   width: 260px;
   height: 50px;
   z-index: 3;
+  margin-top: 1rem;
+  cursor: pointer;
   width: 200px;
   background-color: #fff;
 }
@@ -86,6 +91,7 @@
   flex-direction: column;
   align-items: center;
   gap: 1rem;
+  margin-top: 1rem;
 }
 .quizSection .container .categories .quizContainer .answerBtn {
   border-radius: 20px;
@@ -97,6 +103,8 @@
   width: 260px;
   height: 50px;
   z-index: 3;
+  margin-top: 1rem;
+  cursor: pointer;
   width: 200px;
   background-color: #fff;
 }/*# sourceMappingURL=Quiz.styles.css.map */

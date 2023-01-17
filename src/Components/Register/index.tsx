@@ -2,21 +2,14 @@ import React, { useState, useEffect } from "react";
 import "./Register.styles.scss";
 import { Link, useNavigate } from "react-router-dom";
 import { FaLock, FaUser, FaEnvelope } from "react-icons/fa";
-import { LoginProps } from "../../types";
+import { WelcomeProps } from "../../types";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../../firebase-config";
 import { db } from "../../firebase-config";
-import {
-  collection,
-  getDocs,
-  query,
-  where,
-  doc,
-  getDoc,
-  addDoc,
-} from "firebase/firestore";
+import { collection, addDoc } from "firebase/firestore";
+import { motion } from "framer-motion";
 
-const Register = ({ setComponents, setActiveComponent }: LoginProps) => {
+const Register = ({ setComponents, setActiveComponent }: WelcomeProps) => {
   useEffect(() => {
     setComponents(true);
     setActiveComponent("register");
@@ -42,14 +35,20 @@ const Register = ({ setComponents, setActiveComponent }: LoginProps) => {
         email: email,
         points: 0,
       });
-      navigate("/quiz-appka/home");
+      navigate("/home");
     } catch (error) {
       console.log(error);
     }
   };
 
   return (
-    <section className="loginSection">
+    <motion.section
+      className="loginSection"
+      key="registerSection"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1, transition: { duration: 0.4 } }}
+      exit={{ opacity: 0, transition: { duration: 0.4 } }}
+    >
       <form className="container" onSubmit={register}>
         <h2 className="welcomeText">Zarejestruj</h2>
         <div className="inputBox">
@@ -98,10 +97,10 @@ const Register = ({ setComponents, setActiveComponent }: LoginProps) => {
           </button>
         </div>
       </form>
-      <Link to={"/quiz-appka/login"}>
+      <Link to={"/login"}>
         <button className="registerButton">Logowanie</button>
       </Link>
-    </section>
+    </motion.section>
   );
 };
 

@@ -31,4 +31,7 @@
   position: fixed;
   bottom: 0;
   z-index: 999;
+}
+.footer .footerIcon {
+  cursor: pointer;
 }/*# sourceMappingURL=Footer.styles.css.map */

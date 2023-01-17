@@ -1,54 +1,49 @@
 import React, { useEffect } from "react";
-import { HomeProps } from "../../types";
+import { QuizesProps } from "../../types";
 import "./Quizes.styles.scss";
-import { FaGlobeAfrica } from "react-icons/fa";
 import "swiper/css/grid";
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
+import { DynamicFaIcon } from "../../DynamicIcons";
 
-const Quizes = ({ setComponents, setActiveComponent }: HomeProps) => {
+const Quizes = ({
+  setComponents,
+  setActiveComponent,
+  allQuizes,
+}: QuizesProps) => {
   useEffect(() => {
     setComponents(false);
     setActiveComponent("quizes");
   }, []);
 
+  const section = {
+    initial: { height: 0 },
+    animate: { height: "80%", transition: { easeIn: "linear", duration: 0.4 } },
+    exit: { height: 0, transition: { easeIn: "linear", duration: 0.4 } },
+  };
+
   return (
-    <section className="quizesSection">
+    <motion.section
+      className="quizesSection"
+      key="quizesSection"
+      variants={section}
+      initial="initial"
+      whileInView="animate"
+      exit="exit"
+      viewport={{ once: true }}
+    >
       <h2 className="sectionName">Wszystkie quizy</h2>
       <div className="categories">
-        <Link to="/quiz-appka/quiz/4200" className="categoryWrapper">
-          <FaGlobeAfrica style={{ fill: "#fff", fontSize: "3.5rem" }} />
-          <h3 className="categoryName">Geografia</h3>
-        </Link>
-        <div className="categoryWrapper">
-          <FaGlobeAfrica style={{ fill: "#fff", fontSize: "3.5rem" }} />
-          <h3 className="categoryName">Geografia</h3>
-        </div>
-        <div className="categoryWrapper">
-          <FaGlobeAfrica style={{ fill: "#fff", fontSize: "3.5rem" }} />
-          <h3 className="categoryName">Geografia</h3>
-        </div>
-        <div className="categoryWrapper">
-          <FaGlobeAfrica style={{ fill: "#fff", fontSize: "3.5rem" }} />
-          <h3 className="categoryName">Geografia</h3>
-        </div>
-        <div className="categoryWrapper">
-          <FaGlobeAfrica style={{ fill: "#fff", fontSize: "3.5rem" }} />
-          <h3 className="categoryName">Geografia</h3>
-        </div>
-        <div className="categoryWrapper">
-          <FaGlobeAfrica style={{ fill: "#fff", fontSize: "3.5rem" }} />
-          <h3 className="categoryName">Geografia</h3>
-        </div>
-        <div className="categoryWrapper">
-          <FaGlobeAfrica style={{ fill: "#fff", fontSize: "3.5rem" }} />
-          <h3 className="categoryName">Geografia</h3>
-        </div>
-        <div className="categoryWrapper">
-          <FaGlobeAfrica style={{ fill: "#fff", fontSize: "3.5rem" }} />
-          <h3 className="categoryName">Geografia</h3>
-        </div>
+        {allQuizes.map((item, i) => {
+          return (
+            <Link to={`/quiz/${item.id}`} className="categoryWrapper" key={i}>
+              <DynamicFaIcon name={item.icon} />
+              <h3 className="categoryName">{item.title}</h3>
+            </Link>
+          );
+        })}
       </div>
-    </section>
+    </motion.section>
   );
 };
 

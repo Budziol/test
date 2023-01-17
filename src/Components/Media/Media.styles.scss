@@ -29,6 +29,7 @@
       border-radius: $borderRadius;
       width: 130px;
       padding: 1rem;
+      margin-top: 1rem;
       .categoryName {
         @include categoryName;
       }
